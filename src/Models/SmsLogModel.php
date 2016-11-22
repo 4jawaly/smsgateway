@@ -4,7 +4,7 @@ namespace Jawaly\SmsGateway\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SmsLog extends Model
+class SmsLogModel extends Model
 {
 
     protected $table = 'sms_log';

@@ -3,7 +3,7 @@
 namespace Jawaly\SmsGateway;
 
 use Jawaly\SmsGateway\Gateway\JawalyGateway;
-use Jawaly\SmsGateway\SmsLog;
+use Jawaly\SmsGateway\SmsLogModel;
 
 class Jawaly
 {
@@ -16,6 +16,7 @@ class Jawaly
 
     public function __construct($sender = null)
     {
+        
         $this->jawaly = new JawalyGateway();
         if ($sender == null) {
             $this->from = config('jawaly.sender');
@@ -53,7 +54,7 @@ class Jawaly
                 ->send();
         if (config('jawaly.save_log') == true) {
             $gateMessage = isset($send['message']) ? $send['message'] : '';
-            SmsLog::addLog([
+            SmsLogModel::addLog([
                 'body' => $message,
                 'numbers' => $this->to,
                 'sender' => $this->from,
