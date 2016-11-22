@@ -16,7 +16,7 @@ class SmsLog
             return [true];
         } elseif ($container == 'database') {
             try {
-                $insert = SmsLog::insert($data);
+                $insert = SmsLogModel::insert($data);
                 return [true];
             } catch (\PDOException $ex) {
                 return [false, $ex->getMessage()];
