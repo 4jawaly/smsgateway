@@ -1,0 +1,27 @@
+{
+    "name": "jawaly/smsgateway",
+    "description": "Laravel package to send SMS using 4jawaly.net API",
+    "keywords": [
+        "4jawaly",
+        "sms",
+        "gateway"
+    ],
+    "type": "library",
+    "require": {
+        "ext-curl": "*",
+        "guzzlehttp/guzzle": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jawaly\\SmsGateway\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marwan Zakariya",
+            "email": "marawan@tech-world.ws"
+        }
+    ],
+    "minimum-stability": "dev",
+    "homepage": "http://4jawaly.net"
+}
