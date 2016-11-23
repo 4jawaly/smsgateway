@@ -15,10 +15,10 @@ class SmsServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/jawaly.php' => config_path('jawaly.php'),
+            __DIR__ . '/config/jawaly.php' => config_path('jawaly.php'),
                 ], 'config');
         $this->publishes([
-            __DIR__ . '/../database/migrations/' => database_path('migrations')
+            __DIR__ . '/database/migrations/' => database_path('migrations')
                 ], 'migrations');
     }
 
