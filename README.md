@@ -64,3 +64,16 @@ Or:
 ```
 Jawaly::setFrom($sender)->send($message);
 ```
+
+## Credit
+This method doesn't take any parameters, you can use it simply:
+
+```
+Jawaly::getCredits();
+```
+This will return an array with credits in second element if first element true, or response message in second element if first element false.
+
+## SMS Log
+
+If you use database for log container in jawaly.php config file, this will store log in sms_log table every time you send message.
+If you use file for log container, this will store send log in storage/logs/jawaly.log

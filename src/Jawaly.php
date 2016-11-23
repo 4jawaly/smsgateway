@@ -64,7 +64,6 @@ class Jawaly
 
     public function getCredits()
     {
-        $jawaly = JawalyGateway::getInstance();
         $balance = $this->jawaly->setUser($this->username, $this->password)->getBalance();
         if ($balance['status']) {
             return [true, $balance['response']];
