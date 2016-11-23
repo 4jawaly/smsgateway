@@ -17,6 +17,7 @@ class JawalyGateway extends GatewayAbstract
     protected $sender;
     protected $username;
     protected $password;
+    protected $encoding;
 
     public function setUser($username, $password)
     {
@@ -74,8 +75,10 @@ class JawalyGateway extends GatewayAbstract
     {
         if ($unicode == true) {
             $this->message = $this->convertToUnicode(trim($message));
+            $this->encoding = 'U';
         } else {
             $this->message = trim($message);
+            $this->encoding = 'E';
         }
         return $this;
     }
@@ -92,7 +95,8 @@ class JawalyGateway extends GatewayAbstract
                     'sender' => $this->sender,
                     'message' => $this->message,
                     'numbers' => $this->numbers,
-                    'return' => 'json'
+                    'return' => 'json',
+                    'unicode' => $this->encoding
                 ]
             ]);
             $jsonResponse = json_decode($response->getBody());

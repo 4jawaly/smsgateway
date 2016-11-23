@@ -2,8 +2,8 @@
 
 namespace Jawaly\SmsGateway;
 
-use Illuminate\Contracts\Logging\Log;
-use Jawaly\SmsGateway\Models\SmsLog;
+use Illuminate\Support\Facades\Log;
+use Jawaly\SmsGateway\Models\SmsLogModel;
 
 class SmsLog
 {
@@ -16,7 +16,7 @@ class SmsLog
             return [true];
         } elseif ($container == 'database') {
             try {
-                $insert = SmsLogModel::insert($data);
+                $insert = SmsLogModel::create($data);
                 return [true];
             } catch (\PDOException $ex) {
                 return [false, $ex->getMessage()];

@@ -16,7 +16,7 @@ class Jawaly
 
     public function __construct($sender = null)
     {
-        
+
         $this->jawaly = new JawalyGateway();
         if ($sender == null) {
             $this->from = config('jawaly.sender');
@@ -50,7 +50,7 @@ class Jawaly
         $send = $this->jawaly->setUser($this->username, $this->password)
                 ->setSender($this->from)
                 ->setNumbers($this->to)
-                ->setMessage($message)
+                ->setMessage($message, config('jawaly.unicode'))
                 ->send();
         if (config('jawaly.save_log') == true) {
             $gateMessage = isset($send['message']) ? $send['message'] : '';
@@ -61,8 +61,9 @@ class Jawaly
                 'status' => $send['status'] ? 'success' : 'failed',
                 'response' => $send['response'],
                 'gate_message' => $gateMessage
-                    ], config('jawaly.container'));
+                    ], config('jawaly.log_container'));
         }
+        return $send;
     }
 
     public function getCredits()
