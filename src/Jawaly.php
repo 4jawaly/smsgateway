@@ -14,15 +14,11 @@ class Jawaly
     private $to;
     private $jawaly;
 
-    public function __construct($sender = null)
+    public function __construct()
     {
 
         $this->jawaly = new JawalyGateway();
-        if ($sender == null) {
-            $this->from = config('jawaly.sender');
-        } else {
-            $this->from = $sender;
-        }
+        $this->from = config('jawaly.sender');
         $this->username = config('jawaly.username');
         $this->password = config('jawaly.password');
     }
