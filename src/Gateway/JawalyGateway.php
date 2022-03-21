@@ -86,7 +86,7 @@ class JawalyGateway extends GatewayAbstract
     public function send()
     {
         $client = new \GuzzleHttp\Client([
-            'base_uri' => 'http://4jawaly.net/'
+            'base_uri' => 'http://www.4jawaly.net/'
         ]);
         try {
             $response = $client->post('api/sendsms.php', ['form_params' => [
